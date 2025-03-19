@@ -1,18 +1,33 @@
-## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+# Projeto back-end de um sistema gerador de holerite
 
-## Folder Structure
 
-The workspace contains two folders by default, where:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+Este projeto tem por finalidade calcular e gerar as informações de um determinado trabalhador, considerando alguns dados (salario base, feriado, salario familia, quebra de caixa, periculosidade e etc...).
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+A pricipio, sua regra de negocio é voltado pra farmacias e drogarias e pode ser facilmente adaptado a outro negocio.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+O sistema ainda está em desenvolvimento. Sinta-se a vontade pra corrigir, melhorar e dar sugestões.
 
-## Dependency Management
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+
+
+
+
+
+## Stack utilizada
+
+
+
+**Back-end:** Java ☕
+
+
+# Me chamo Rodrigo! 👋
+
+
+## 🔗 E você pode me encontrar em:
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rodrigo-souza-303572264/)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/pretorsouza)
+[![Instagram](https://img.shields.io/badge/INSTAGRAM-ff007f)](https://www.instagram.com/rdpsouza/)
+
