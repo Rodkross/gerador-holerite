@@ -25,7 +25,7 @@ O sistema ainda está em desenvolvimento. Sinta-se a vontade pra corrigir, melho
 # Me chamo Rodrigo! 👋
 
 
-## 🔗 E você pode me encontrar em:
+## 🔗Você pode me encontrar em:
 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rodrigo-souza-303572264/)
 [![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/pretorsouza)
