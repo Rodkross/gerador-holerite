@@ -20,7 +20,7 @@ class Pessoa {
         this.diasTrabalhados = diasTrabalhados;
         this.numeroDeFilhos = numeroDeFilhos;
         this.numeroDeFeriados = numeroDeFeriados;
-        this.feriado = salarioBase / 30 * numeroDeFeriados * numeroDeFilhos;
+        this.feriado = calcularFeriado();
         this.totalLiquido = 0.0; // Initialize totalLiquido to 0.0
     }
 
@@ -97,7 +97,6 @@ class Pessoa {
         this.totalLiquido = totalLiquido;
     }
 
-
     // metodos
 
     // método para calcular valor dias trabalhados
@@ -114,7 +113,8 @@ class Pessoa {
 
     // método para calcular o feriado
     double calcularFeriado() {
-        return feriado;
+        double feriadoValor = this.getSalarioBase() / 30 * this.getNumeroDeFeriados() * 2;
+        return feriadoValor;
     }
 
     public double calcularSalarioLiquido() {
@@ -122,12 +122,15 @@ class Pessoa {
     }
 
     public void exibirInformacoes() {
-        System.out.println("Nome: " + this.getNome());
+        System.out.println("\nNome: " + this.getNome());
         System.out.println("Empresa: " + this.getEmpresa());
-        System.out.println("Dias trabalhados: " + this.calcularDiasTrabalhados());
-        System.out.println("Salário Família: " + this.calcularSalarioFamilia());
-        System.out.println("Feriado: " + this.calcularFeriado());
-        System.out.printf("Salário Líquido: %.2f ", this.calcularSalarioLiquido());
+        System.out.printf("\n--------Vencimentos-------");
+        System.out.printf("\nDias trabalhados: %.2f", this.calcularDiasTrabalhados());
+        System.out.printf("\nSalário Família: %.2f", this.calcularSalarioFamilia());
+        System.out.printf("\nFeriado: %.2f", this.calcularFeriado());
+        System.out.println("\n---------------------------");
+        System.out.printf("\nSalário Líquido: R$%.2f ", this.calcularSalarioLiquido());
+        System.out.println("\n---------------------------");
     }
 
 }

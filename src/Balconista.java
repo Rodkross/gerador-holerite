@@ -1,9 +1,9 @@
 public class Balconista extends Pessoa {
 
-    public Balconista(String nome, String empresa, Double salarioBase, double salarioFamilia, double feriado,
+    public Balconista(String nome, String empresa, Double salarioBase, double salarioFamilia,
             int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados) {
-                super(nome, empresa, salarioBase, salarioFamilia, diasTrabalhados, numeroDeFilhos, numeroDeFeriados);
-        }
+        super(nome, empresa, salarioBase, salarioFamilia, diasTrabalhados, numeroDeFilhos, numeroDeFeriados);
+    }
 
     @Override
     public double calcularSalarioLiquido() {
@@ -16,17 +16,17 @@ public class Balconista extends Pessoa {
     }
 
     @Override
-    public double calcularDiasTrabalhados(){
+    public double calcularDiasTrabalhados() {
         return (this.getSalarioBase() / 30) * this.getDiasTrabalhados();
     }
 
     @Override
-    public double calcularSalarioFamilia(){
+    public double calcularSalarioFamilia() {
         return this.getSalarioFamilia() * this.getNumeroDeFilhos();
     }
-    
+
     @Override
-    public void exibirInformacoes(){
+    public void exibirInformacoes() {
         super.exibirInformacoes();
     }
 }
