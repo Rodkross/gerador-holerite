@@ -1,5 +1,6 @@
 class Pessoa {
     // atributos
+    // vencimentos
     private String nome;
     private String empresa;
     private double salarioBase;
@@ -8,11 +9,16 @@ class Pessoa {
     private int numeroDeFilhos;
     private int numeroDeFeriados;
     private double feriado;
-    private double totalLiquido; // Changed to double
+    private double totalLiquido;
+    // descontos
+    private double descontoVale;
+    private double descontoINSS;
+    private double descontoConvenio;
+    private int numeroFaltas;
 
     // construtor
     public Pessoa(String nome, String empresa, double salarioBase, double salarioFamilia,
-            int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados) { // Removed totalLiquido from constructor
+            int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados, double descontoVale, double descontoConvenio, int numeroFaltas) { 
         this.nome = nome;
         this.empresa = empresa;
         this.salarioBase = salarioBase;
@@ -21,7 +27,10 @@ class Pessoa {
         this.numeroDeFilhos = numeroDeFilhos;
         this.numeroDeFeriados = numeroDeFeriados;
         this.feriado = calcularFeriado();
-        this.totalLiquido = 0.0; // Initialize totalLiquido to 0.0
+        this.totalLiquido = 0.0;
+        this.descontoVale = descontoVale;
+        this.descontoConvenio = descontoConvenio;
+        this.numeroFaltas = numeroFaltas;
     }
 
     // getter e setters
@@ -97,7 +106,40 @@ class Pessoa {
         this.totalLiquido = totalLiquido;
     }
 
-    // metodos
+    public double getDescontoVale() {
+        return descontoVale;
+    }
+
+    public void setDescontoVale(double descontoVale) {
+        this.descontoVale = descontoVale;
+    }
+
+    public double getDescontoINSS() {
+        return descontoINSS;
+    }
+
+    public void setDescontoINSS(double descontoINSS) {
+        this.descontoINSS = descontoINSS;
+    }
+
+    public double getDescontoConvenio() {
+        return descontoConvenio;
+    }
+
+    public void setDescontoConvenio(double descontoConvenio) {
+        this.descontoConvenio = descontoConvenio;
+    }
+
+    public int getNumeroFaltas() {
+        return numeroFaltas;
+    }
+
+    public void setNumeroFaltas(int numeroFaltas) {
+        this.numeroFaltas = numeroFaltas;
+    }
+    
+
+    // metodos  
 
     // método para calcular valor dias trabalhados
     public double calcularDiasTrabalhados() {
@@ -117,20 +159,53 @@ class Pessoa {
         return feriadoValor;
     }
 
-    public double calcularSalarioLiquido() {
-        return 0.0;
+    public double calcularINSS(){
+        double inssValor = this.calcularDiasTrabalhados() * 0.08;
+        return inssValor;
     }
 
+    public double calcularFaltas(){
+        double faltasValor = this.getSalarioBase() / 30 * this.getNumeroFaltas();
+        return faltasValor;
+    }
+
+    public double calcularVencimentos() {
+        double vencimentosValor = this.calcularDiasTrabalhados() + this.calcularSalarioFamilia() + this.calcularFeriado();
+        return vencimentosValor;
+    }
+
+    public double calcularDescontos() {
+        double descontosValor = this.getDescontoVale() + this.calcularINSS() + this.getDescontoConvenio() + this.calcularFaltas();
+        return descontosValor;
+    }
+
+    public double calcularSalarioLiquido() {
+        double salarioLiquido = calcularVencimentos() - calcularDescontos();
+        return salarioLiquido;
+    }
+
+
+    //metodo das informacoes
     public void exibirInformacoes() {
         System.out.println("\nNome: " + this.getNome());
         System.out.println("Empresa: " + this.getEmpresa());
-        System.out.printf("\n--------Vencimentos-------");
+        System.out.printf("\n");
         System.out.printf("\nDias trabalhados: %.2f", this.calcularDiasTrabalhados());
         System.out.printf("\nSalário Família: %.2f", this.calcularSalarioFamilia());
         System.out.printf("\nFeriado: %.2f", this.calcularFeriado());
-        System.out.println("\n---------------------------");
-        System.out.printf("\nSalário Líquido: R$%.2f ", this.calcularSalarioLiquido());
-        System.out.println("\n---------------------------");
+        System.out.printf("\n");
+        System.out.printf("\nVencimentos .................. R$%.2f", calcularVencimentos());
+        System.out.printf("\n");
+        System.out.printf("\nVales: %.2f", this.getDescontoVale()); //corrigir calculo
+        System.out.printf("\nINSS: %.2f", this.calcularINSS());
+        System.out.printf("\nConvênio funcionário: %.2f", getDescontoConvenio());
+        System.out.printf("\nFaltas: %.2f", this.calcularFaltas());
+        System.out.printf("\n");
+        System.out.printf("\nDescontos ......................... R$%.2f", calcularDescontos());
+        System.out.printf("\n");
+        System.out.println("\n-----------------------------------");
+        System.out.printf("Salário Líquido: R$%.2f ", this.calcularSalarioLiquido());
+        System.out.println("\n-----------------------------------");
     }
 
 }
