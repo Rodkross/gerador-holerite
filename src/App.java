@@ -1,3 +1,5 @@
+import departamentos.Balconista;
+
 public class App {
     public static void main(String[] args) throws Exception {
         // nome - empresa - salario base - salario familia - dias trabalhados - n filhos - n feriados (vencimentos)
