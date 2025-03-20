@@ -4,9 +4,9 @@ public class Balconista extends Pessoa {
 
     public Balconista(String nome, String empresa, Double salarioBase,
             int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados, double descontoVale, double descontoConvenio,
-            int descontoFaltas) {
+            int descontoFaltas, boolean adiantamento) {
         super(nome, empresa, salarioBase, diasTrabalhados, numeroDeFilhos, numeroDeFeriados,
-                descontoVale, descontoConvenio, descontoFaltas);
+                descontoVale, descontoConvenio, descontoFaltas, adiantamento);
     }
 
     public String mudarFuncao() {
@@ -29,7 +29,7 @@ public class Balconista extends Pessoa {
         System.out.printf("\nINSS: %.2f", this.calcularINSS());
         System.out.printf("\nConvênio funcionário: %.2f", getDescontoConvenio());
         System.out.printf("\nFaltas: %.2f", this.calcularFaltas());
-        System.out.printf("\nAdiantamento %.2f", this.getAdiantamento());
+        System.out.printf("\nAdiantamento %.2f", this.calcularAdiantamento());
         System.out.printf("\n");
         System.out.printf("\n");
         System.out.printf("\nVencimentos ..................R$%.2f", calcularVencimentos());

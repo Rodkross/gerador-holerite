@@ -17,12 +17,13 @@ class Pessoa {
     private double descontoINSS;
     private double descontoConvenio;
     private int numeroFaltas;
-    private double adiantamento;
+    private boolean adiantamento;
+    private double adiantamentoValor;
 
     // construtor
     public Pessoa(String nome, String empresa, double salarioBase,
             int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados, double descontoVale, double descontoConvenio,
-            int numeroFaltas) {
+            int numeroFaltas, boolean adiantamento) {
         this.nome = nome;
         this.empresa = empresa;
         this.salarioBase = salarioBase;
@@ -34,7 +35,8 @@ class Pessoa {
         this.descontoVale = descontoVale;
         this.descontoConvenio = descontoConvenio;
         this.numeroFaltas = numeroFaltas;
-        this.adiantamento = salarioBase * 40/100;
+        this.adiantamento = adiantamento;
+        this.adiantamentoValor = 0; 
         
     }
 
@@ -138,12 +140,19 @@ class Pessoa {
     public double getTetoSalarioFamilia(){
         return tetoSalarioFamilia;
     }
-    public void setTetoSalarioFamilia(){
+    public void setTetoSalarioFamilia(double tetoSalarioFamilia){
         this.tetoSalarioFamilia = 1904.06;
     }
 
-    double getAdiantamento(){
-        return adiantamento;
+    boolean getAdiantamento() {
+        return this.adiantamento;
+    }
+    public void setAdiantamento(boolean adiantamento) {
+        this.adiantamento = adiantamento;
+    }
+
+    double getAdiantamentoValor(){
+        return adiantamentoValor;
     }
    
 
@@ -189,7 +198,7 @@ class Pessoa {
 
     public double calcularDescontos() {
         double descontosValor = this.getDescontoVale() + this.calcularINSS() + this.getDescontoConvenio()
-                + this.calcularFaltas() + this.getAdiantamento();
+                + this.calcularFaltas() + this.getAdiantamentoValor();
         return descontosValor;
     }
 
@@ -202,6 +211,15 @@ class Pessoa {
         double salarioLiquido = calcularVencimentos() - calcularDescontos();
         return salarioLiquido;
     }
+
+    public double calcularAdiantamento() {
+        if(this.getAdiantamento() == true){
+            adiantamentoValor = salarioBase * 40/100;
+            return adiantamentoValor;
+        }
+        return 0.00;
+    }
+    
 
     // metodo das informacoes
     public void exibirInformacoes() {
@@ -217,7 +235,7 @@ class Pessoa {
         System.out.printf("\nINSS: %.2f", this.calcularINSS());
         System.out.printf("\nConvênio funcionário: %.2f", getDescontoConvenio());
         System.out.printf("\nFaltas: %.2f", this.calcularFaltas());
-        System.out.printf("\nAdiantamento %.2f", this.getAdiantamento());
+        System.out.printf("\nAdiantamento %.2f", this.calcularAdiantamento());
         System.out.printf("\n");
         System.out.printf("\n");
         System.out.printf("\nVencimentos ..................R$%.2f", calcularVencimentos());
