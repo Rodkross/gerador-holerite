@@ -1,3 +1,5 @@
+package departamentos;
+
 public class Balconista extends Pessoa {
 
     public Balconista(String nome, String empresa, Double salarioBase, double salarioFamilia,

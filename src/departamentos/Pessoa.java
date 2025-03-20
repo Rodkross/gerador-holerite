@@ -1,3 +1,4 @@
+package departamentos;
 class Pessoa {
     // atributos
     // vencimentos
