@@ -1,9 +1,11 @@
 package departamentos;
+
 class Pessoa {
     // atributos
     // vencimentos
     private String nome;
     private String empresa;
+    private String funcao;
     private double salarioBase;
     private double salarioFamilia;
     private int diasTrabalhados;
@@ -19,7 +21,8 @@ class Pessoa {
 
     // construtor
     public Pessoa(String nome, String empresa, double salarioBase, double salarioFamilia,
-            int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados, double descontoVale, double descontoConvenio, int numeroFaltas) { 
+            int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados, double descontoVale, double descontoConvenio,
+            int numeroFaltas) {
         this.nome = nome;
         this.empresa = empresa;
         this.salarioBase = salarioBase;
@@ -138,9 +141,16 @@ class Pessoa {
     public void setNumeroFaltas(int numeroFaltas) {
         this.numeroFaltas = numeroFaltas;
     }
-    
 
-    // metodos  
+    public String getFuncao() {
+        return this.funcao;
+    }
+
+    public void setFuncao(String funcao) {
+        this.funcao = funcao;
+    }
+
+    // metodos
 
     // método para calcular valor dias trabalhados
     public double calcularDiasTrabalhados() {
@@ -160,23 +170,25 @@ class Pessoa {
         return feriadoValor;
     }
 
-    public double calcularINSS(){
+    public double calcularINSS() {
         double inssValor = this.calcularDiasTrabalhados() * 0.08;
         return inssValor;
     }
 
-    public double calcularFaltas(){
+    public double calcularFaltas() {
         double faltasValor = this.getSalarioBase() / 30 * this.getNumeroFaltas();
         return faltasValor;
     }
 
     public double calcularVencimentos() {
-        double vencimentosValor = this.calcularDiasTrabalhados() + this.calcularSalarioFamilia() + this.calcularFeriado();
+        double vencimentosValor = this.calcularDiasTrabalhados() + this.calcularSalarioFamilia()
+                + this.calcularFeriado();
         return vencimentosValor;
     }
 
     public double calcularDescontos() {
-        double descontosValor = this.getDescontoVale() + this.calcularINSS() + this.getDescontoConvenio() + this.calcularFaltas();
+        double descontosValor = this.getDescontoVale() + this.calcularINSS() + this.getDescontoConvenio()
+                + this.calcularFaltas();
         return descontosValor;
     }
 
@@ -185,8 +197,7 @@ class Pessoa {
         return salarioLiquido;
     }
 
-
-    //metodo das informacoes
+    // metodo das informacoes
     public void exibirInformacoes() {
         System.out.println("\nNome: " + this.getNome());
         System.out.println("Empresa: " + this.getEmpresa());
@@ -197,7 +208,7 @@ class Pessoa {
         System.out.printf("\n");
         System.out.printf("\nVencimentos .................. R$%.2f", calcularVencimentos());
         System.out.printf("\n");
-        System.out.printf("\nVales: %.2f", this.getDescontoVale()); //corrigir calculo
+        System.out.printf("\nVales: %.2f", this.getDescontoVale()); // corrigir calculo
         System.out.printf("\nINSS: %.2f", this.calcularINSS());
         System.out.printf("\nConvênio funcionário: %.2f", getDescontoConvenio());
         System.out.printf("\nFaltas: %.2f", this.calcularFaltas());

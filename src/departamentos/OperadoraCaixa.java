@@ -1,28 +1,43 @@
 package departamentos;
 
 public class OperadoraCaixa extends Pessoa {
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> caixa
     public OperadoraCaixa(String nome, String empresa, Double salarioBase, double salarioFamilia,
             int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados, double descontoVale, double descontoConvenio,
             int descontoFaltas) {
         super(nome, empresa, salarioBase, salarioFamilia, diasTrabalhados, numeroDeFilhos, numeroDeFeriados,
                 descontoVale, descontoConvenio, descontoFaltas);
+<<<<<<< HEAD
                 
+=======
+
+    }
+
+    public String mudarFuncao() {
+        String funcaoModificada = "Operadora de Caixa";
+        return funcaoModificada;
+>>>>>>> caixa
     }
 
     public double calcularQuebraCaixa() {
-        double valorQuebraDeCaixa = this.calcularDiasTrabalhados() * 10 /100;
+        double valorQuebraDeCaixa = this.calcularDiasTrabalhados() * 10 / 100;
         return valorQuebraDeCaixa;
     }
 
     public double calcularVencimentos() {
-        double vencimentosValor = this.calcularDiasTrabalhados() + this.calcularSalarioFamilia() + this.calcularFeriado() + this.calcularQuebraCaixa();
+        double vencimentosValor = this.calcularDiasTrabalhados() + this.calcularSalarioFamilia()
+                + this.calcularFeriado() + this.calcularQuebraCaixa();
         return vencimentosValor;
     }
 
     public void exibirInformacoes() {
         System.out.println("\nNome: " + this.getNome());
         System.out.println("Empresa: " + this.getEmpresa());
+        System.out.println("Função: " + this.mudarFuncao());
         System.out.printf("\n");
         System.out.printf("\nDias trabalhados: %.2f", this.calcularDiasTrabalhados());
         System.out.printf("\nSalário Família: %.2f", this.calcularSalarioFamilia());
@@ -31,7 +46,7 @@ public class OperadoraCaixa extends Pessoa {
         System.out.printf("\n");
         System.out.printf("\nVencimentos .................. R$%.2f", calcularVencimentos());
         System.out.printf("\n");
-        System.out.printf("\nVales: %.2f", this.getDescontoVale()); //corrigir calculo
+        System.out.printf("\nVales: %.2f", this.getDescontoVale()); // corrigir calculo
         System.out.printf("\nINSS: %.2f", this.calcularINSS());
         System.out.printf("\nConvênio funcionário: %.2f", getDescontoConvenio());
         System.out.printf("\nFaltas: %.2f", this.calcularFaltas());
@@ -42,5 +57,5 @@ public class OperadoraCaixa extends Pessoa {
         System.out.printf("Salário Líquido: R$%.2f ", this.calcularSalarioLiquido());
         System.out.println("\n-----------------------------------");
     }
-         
+
 }
