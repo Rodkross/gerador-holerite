@@ -2,10 +2,10 @@ package departamentos;
 
 public class Balconista extends Pessoa {
 
-    public Balconista(String nome, String empresa, Double salarioBase, double salarioFamilia,
+    public Balconista(String nome, String empresa, Double salarioBase,
             int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados, double descontoVale, double descontoConvenio,
             int descontoFaltas) {
-        super(nome, empresa, salarioBase, salarioFamilia, diasTrabalhados, numeroDeFilhos, numeroDeFeriados,
+        super(nome, empresa, salarioBase, diasTrabalhados, numeroDeFilhos, numeroDeFeriados,
                 descontoVale, descontoConvenio, descontoFaltas);
     }
 
@@ -13,7 +13,7 @@ public class Balconista extends Pessoa {
         String funcaoModificada = "Balconista";
         return funcaoModificada;
     }
-
+    @Override
     public void exibirInformacoes() {
         System.out.println("\nNome: " + this.getNome());
         System.out.println("Empresa: " + this.getEmpresa());

@@ -7,12 +7,11 @@ class Pessoa {
     private String empresa;
     private String funcao;
     private double salarioBase;
-    private double salarioFamilia;
     private int diasTrabalhados;
     private int numeroDeFilhos;
     private int numeroDeFeriados;
     private double feriado;
-    private double totalLiquido;
+    private double tetoSalarioFamilia;
     // descontos
     private double descontoVale;
     private double descontoINSS;
@@ -20,18 +19,17 @@ class Pessoa {
     private int numeroFaltas;
 
     // construtor
-    public Pessoa(String nome, String empresa, double salarioBase, double salarioFamilia,
+    public Pessoa(String nome, String empresa, double salarioBase,
             int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados, double descontoVale, double descontoConvenio,
             int numeroFaltas) {
         this.nome = nome;
         this.empresa = empresa;
         this.salarioBase = salarioBase;
-        this.salarioFamilia = salarioFamilia;
         this.diasTrabalhados = diasTrabalhados;
         this.numeroDeFilhos = numeroDeFilhos;
         this.numeroDeFeriados = numeroDeFeriados;
         this.feriado = calcularFeriado();
-        this.totalLiquido = 0.0;
+        this.tetoSalarioFamilia = 1904.06;        
         this.descontoVale = descontoVale;
         this.descontoConvenio = descontoConvenio;
         this.numeroFaltas = numeroFaltas;
@@ -60,14 +58,6 @@ class Pessoa {
 
     public void setSalarioBase(double salarioBase) {
         this.salarioBase = salarioBase;
-    }
-
-    public double getSalarioFamilia() {
-        return salarioFamilia;
-    }
-
-    public void setSalarioFamilia(double salarioFamilia) {
-        this.salarioFamilia = salarioFamilia;
     }
 
     public double getFeriado() {
@@ -100,14 +90,6 @@ class Pessoa {
 
     public void setNumeroDeFeriados(int numeroDeFeriados) {
         this.numeroDeFeriados = numeroDeFeriados;
-    }
-
-    public double getTotalLiquido() {
-        return totalLiquido;
-    }
-
-    public void setTotalLiquido(double totalLiquido) {
-        this.totalLiquido = totalLiquido;
     }
 
     public double getDescontoVale() {
@@ -150,6 +132,13 @@ class Pessoa {
         this.funcao = funcao;
     }
 
+    public double getTetoSalarioFamilia(){
+        return tetoSalarioFamilia;
+    }
+    public void setTetoSalarioFamilia(){
+        this.tetoSalarioFamilia = 1904.06;
+    }
+
     // metodos
 
     // método para calcular valor dias trabalhados
@@ -160,8 +149,12 @@ class Pessoa {
 
     // metodo pra calcular o salario familia
     public double calcularSalarioFamilia() {
-        double salarioFamiliaValor = this.getSalarioFamilia() * this.getNumeroDeFilhos(); // Corrected calculation
-        return salarioFamiliaValor;
+        if (this.calcularSalarioContribuicao() < this.getTetoSalarioFamilia()) {
+            double salarioFamiliaValor = 65.00 / 30 * this.getDiasTrabalhados() * this.getNumeroDeFilhos();
+            return salarioFamiliaValor;
+        }
+        return 0;
+
     }
 
     // método para calcular o feriado
@@ -190,6 +183,11 @@ class Pessoa {
         double descontosValor = this.getDescontoVale() + this.calcularINSS() + this.getDescontoConvenio()
                 + this.calcularFaltas();
         return descontosValor;
+    }
+
+    public double calcularSalarioContribuicao() {
+        double salarioContribuicaoValor = this.calcularDiasTrabalhados() + this.getFeriado();
+        return salarioContribuicaoValor;
     }
 
     public double calcularSalarioLiquido() {

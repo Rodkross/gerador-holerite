@@ -2,10 +2,10 @@ package departamentos;
 
 public class OperadoraCaixa extends Pessoa {
 
-    public OperadoraCaixa(String nome, String empresa, Double salarioBase, double salarioFamilia,
+    public OperadoraCaixa(String nome, String empresa, Double salarioBase,
             int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados, double descontoVale, double descontoConvenio,
             int descontoFaltas) {
-        super(nome, empresa, salarioBase, salarioFamilia, diasTrabalhados, numeroDeFilhos, numeroDeFeriados,
+        super(nome, empresa, salarioBase, diasTrabalhados, numeroDeFilhos, numeroDeFeriados,
                 descontoVale, descontoConvenio, descontoFaltas);
 
     }
@@ -26,6 +26,12 @@ public class OperadoraCaixa extends Pessoa {
         return vencimentosValor;
     }
 
+    @Override
+    public double calcularSalarioContribuicao() {
+        double salarioContribuicaoValor = this.calcularDiasTrabalhados() + this.getFeriado() + this.calcularQuebraCaixa();
+        return salarioContribuicaoValor;
+    }
+    @Override
     public void exibirInformacoes() {
         System.out.println("\nNome: " + this.getNome());
         System.out.println("Empresa: " + this.getEmpresa());
