@@ -17,6 +17,7 @@ class Pessoa {
     private double descontoINSS;
     private double descontoConvenio;
     private int numeroFaltas;
+    private double adiantamento;
 
     // construtor
     public Pessoa(String nome, String empresa, double salarioBase,
@@ -33,6 +34,7 @@ class Pessoa {
         this.descontoVale = descontoVale;
         this.descontoConvenio = descontoConvenio;
         this.numeroFaltas = numeroFaltas;
+        
     }
 
     // getter e setters
@@ -139,6 +141,14 @@ class Pessoa {
         this.tetoSalarioFamilia = 1904.06;
     }
 
+    double getAdiantamento(){
+        return adiantamento;
+    }
+
+    void setAdiantamento(){
+        this.adiantamento = getDiasTrabalhados() * 40/100;
+    }
+
     // metodos
 
     // método para calcular valor dias trabalhados
@@ -181,7 +191,7 @@ class Pessoa {
 
     public double calcularDescontos() {
         double descontosValor = this.getDescontoVale() + this.calcularINSS() + this.getDescontoConvenio()
-                + this.calcularFaltas();
+                + this.calcularFaltas() + this.getAdiantamento();
         return descontosValor;
     }
 
@@ -210,6 +220,7 @@ class Pessoa {
         System.out.printf("\nINSS: %.2f", this.calcularINSS());
         System.out.printf("\nConvênio funcionário: %.2f", getDescontoConvenio());
         System.out.printf("\nFaltas: %.2f", this.calcularFaltas());
+        System.out.printf("\nAdiantamento ......................... R$%.2f", this.getAdiantamento());
         System.out.printf("\n");
         System.out.printf("\nDescontos ......................... R$%.2f", calcularDescontos());
         System.out.printf("\n");
