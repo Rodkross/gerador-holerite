@@ -31,13 +31,13 @@ class Pessoa {
         this.numeroDeFilhos = numeroDeFilhos;
         this.numeroDeFeriados = numeroDeFeriados;
         this.feriado = calcularFeriado();
-        this.tetoSalarioFamilia = 1904.06;        
+        this.tetoSalarioFamilia = 1904.06;
         this.descontoVale = descontoVale;
         this.descontoConvenio = descontoConvenio;
         this.numeroFaltas = numeroFaltas;
         this.adiantamento = adiantamento;
-        this.adiantamentoValor = 0; 
-        
+        this.adiantamentoValor = 0;
+
     }
 
     // getter e setters
@@ -137,24 +137,25 @@ class Pessoa {
         this.funcao = funcao;
     }
 
-    public double getTetoSalarioFamilia(){
+    public double getTetoSalarioFamilia() {
         return tetoSalarioFamilia;
     }
-    public void setTetoSalarioFamilia(double tetoSalarioFamilia){
+
+    public void setTetoSalarioFamilia(double tetoSalarioFamilia) {
         this.tetoSalarioFamilia = 1904.06;
     }
 
     boolean getAdiantamento() {
         return this.adiantamento;
     }
+
     public void setAdiantamento(boolean adiantamento) {
         this.adiantamento = adiantamento;
     }
 
-    double getAdiantamentoValor(){
+    double getAdiantamentoValor() {
         return adiantamentoValor;
     }
-   
 
     // metodos
 
@@ -213,13 +214,12 @@ class Pessoa {
     }
 
     public double calcularAdiantamento() {
-        if(this.getAdiantamento() == true){
-            adiantamentoValor = salarioBase * 40/100;
+        if (this.getAdiantamento() == true) {
+            adiantamentoValor = salarioBase * 40 / 100;
             return adiantamentoValor;
         }
         return 0.00;
     }
-    
 
     // metodo das informacoes
     public void exibirInformacoes() {
@@ -240,9 +240,10 @@ class Pessoa {
         System.out.printf("\n");
         System.out.printf("\nVencimentos ..................R$%.2f", calcularVencimentos());
         System.out.printf("\nDescontos ....................R$%.2f", calcularDescontos());
-        System.out.println("\n-----------------------------------");
+        System.out.println("\n--------------------------------------");
         System.out.printf("Salário Líquido: R$%.2f ", this.calcularSalarioLiquido());
-        System.out.println("\n-----------------------------------");
+        System.out.println("\n--------------------------------------");
+
     }
 
 }

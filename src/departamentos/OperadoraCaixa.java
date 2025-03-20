@@ -28,9 +28,11 @@ public class OperadoraCaixa extends Pessoa {
 
     @Override
     public double calcularSalarioContribuicao() {
-        double salarioContribuicaoValor = this.calcularDiasTrabalhados() + this.getFeriado() + this.calcularQuebraCaixa();
+        double salarioContribuicaoValor = this.calcularDiasTrabalhados() + this.getFeriado()
+                + this.calcularQuebraCaixa();
         return salarioContribuicaoValor;
     }
+
     @Override
     public void exibirInformacoes() {
         System.out.println("\nNome: " + this.getNome());
@@ -53,9 +55,10 @@ public class OperadoraCaixa extends Pessoa {
         System.out.printf("\nVencimentos ...................R$%.2f", calcularVencimentos());
         System.out.printf("\nDescontos .....................R$%.2f", calcularDescontos());
         System.out.printf("\n");
-        System.out.println("\n-----------------------------------");
+        System.out.println("\n--------------------------------------");
         System.out.printf("Salário Líquido: R$%.2f ", this.calcularSalarioLiquido());
-        System.out.println("\n-----------------------------------");
+        System.out.println("\n--------------------------------------");
+
     }
 
 }

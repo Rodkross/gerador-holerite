@@ -35,9 +35,10 @@ public class Balconista extends Pessoa {
         System.out.printf("\nVencimentos ..................R$%.2f", calcularVencimentos());
         System.out.printf("\nDescontos ....................R$%.2f", calcularDescontos());
         System.out.printf("\n");
-        System.out.println("\n-----------------------------------");
+        System.out.println("\n--------------------------------------");
         System.out.printf("Salário Líquido: R$%.2f ", this.calcularSalarioLiquido());
-        System.out.println("\n-----------------------------------");
+        System.out.println("\n--------------------------------------");
+
     }
 
 }
