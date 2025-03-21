@@ -3,10 +3,9 @@ package departamentos;
 public class OperadoraCaixa extends Pessoa {
     private double erroDeCaixa; // Adicionado um novo atributo
 
-    public OperadoraCaixa(String nome, String empresa, Double salarioBase,
-            int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados, double descontoVale, double descontoConvenio,
+    public OperadoraCaixa(String nome, String empresa, int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados, double descontoVale, double descontoConvenio,
             int descontoFaltas, boolean adiantamento, boolean valeTransporte, double erroDeCaixa) {
-        super(nome, empresa, salarioBase, diasTrabalhados, numeroDeFilhos, numeroDeFeriados,
+        super(nome, empresa, diasTrabalhados, numeroDeFilhos, numeroDeFeriados,
                 descontoVale, descontoConvenio, descontoFaltas, adiantamento, valeTransporte);
         this.erroDeCaixa = erroDeCaixa; // Adicionado desconto de convenio
 
@@ -55,7 +54,7 @@ public class OperadoraCaixa extends Pessoa {
     public void exibirInformacoes() {
         System.out.println("\nNome: " + this.getNome());
         System.out.println("Empresa: " + this.getEmpresa());
-        System.out.println("Função: " + this.exibirFuncao());
+        System.out.printf("Função: %s / Salário Base: R$%.2f", this.exibirFuncao(), this.calcularSalarioBase());
         System.out.printf("\n");
         System.out.printf("\nDias trabalhados: %.2f", this.calcularDiasTrabalhados());
         System.out.printf("\nSalário Família: %.2f", this.calcularSalarioFamilia());

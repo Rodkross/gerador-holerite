@@ -20,14 +20,14 @@ class Pessoa {
     private boolean adiantamento;
     private double adiantamentoValor;
     private boolean valeTransporte;
+   
 
     // construtor
-    public Pessoa(String nome, String empresa, double salarioBase,
-            int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados, double descontoVale, double descontoConvenio,
+    public Pessoa(String nome, String empresa, int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados, double descontoVale, double descontoConvenio,
             int numeroFaltas, boolean adiantamento, boolean valeTransporte) {
         this.nome = nome;
         this.empresa = empresa;
-        this.salarioBase = salarioBase;
+        this.salarioBase = 0;
         this.diasTrabalhados = diasTrabalhados;
         this.numeroDeFilhos = numeroDeFilhos;
         this.numeroDeFeriados = numeroDeFeriados;
@@ -169,9 +169,18 @@ class Pessoa {
 
     // metodos
 
+
+    public double calcularSalarioBase() {
+        double salarioBase = this.getSalarioBase();
+        if(exibirFuncao() == "Balconista" || exibirFuncao() == "Operadora de Caixa" || exibirFuncao() == "Entregador"){
+            salarioBase = 1719.00;
+        }
+        return salarioBase;
+    }
+
     // método para calcular valor dias trabalhados
     public double calcularDiasTrabalhados() {
-        double diasTrabalhadosValor = this.getSalarioBase() / 30 * this.getDiasTrabalhados();
+        double diasTrabalhadosValor = this.calcularSalarioBase() / 30 * this.getDiasTrabalhados();
         return diasTrabalhadosValor;
     }
 
@@ -187,7 +196,7 @@ class Pessoa {
 
     // método para calcular o feriado
     double calcularFeriado() {
-        double feriadoValor = this.getSalarioBase() / 30 * this.getNumeroDeFeriados() * 2;
+        double feriadoValor = this.calcularSalarioBase() / 30 * this.getNumeroDeFeriados() * 2;
         return feriadoValor;
     }
 
@@ -197,7 +206,7 @@ class Pessoa {
     }
 
     public double calcularFaltas() {
-        double faltasValor = this.getSalarioBase() / 30 * this.getNumeroFaltas();
+        double faltasValor = this.calcularSalarioBase() / 30 * this.getNumeroFaltas();
         return faltasValor;
     }
 
@@ -225,7 +234,7 @@ class Pessoa {
 
     public double calcularAdiantamento() {
         if (this.getAdiantamento() == true) {
-            adiantamentoValor = salarioBase * 40 / 100;
+            adiantamentoValor = this.calcularSalarioBase() * 40 / 100;
             return adiantamentoValor;
         }
         return 0.00;
@@ -248,7 +257,7 @@ class Pessoa {
     public void exibirInformacoes() {
         System.out.println("\nNome: " + this.getNome());
         System.out.println("Empresa: " + this.getEmpresa());
-        System.out.println("Função: " + this.exibirFuncao());
+        System.out.printf("Função: %s / Salário Base: R$%.2f", this.exibirFuncao(), this.calcularSalarioBase());
         System.out.printf("\n");
         System.out.printf("\nDias trabalhados: %.2f", this.calcularDiasTrabalhados());
         System.out.printf("\nSalário Família: %.2f", this.calcularSalarioFamilia());
