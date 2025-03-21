@@ -1,13 +1,23 @@
 package departamentos;
 
 public class OperadoraCaixa extends Pessoa {
+    private double erroDeCaixa; // Adicionado um novo atributo
 
     public OperadoraCaixa(String nome, String empresa, Double salarioBase,
             int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados, double descontoVale, double descontoConvenio,
-            int descontoFaltas, boolean adiantamento) {
+            int descontoFaltas, boolean adiantamento, boolean valeTransporte, double erroDeCaixa) {
         super(nome, empresa, salarioBase, diasTrabalhados, numeroDeFilhos, numeroDeFeriados,
-                descontoVale, descontoConvenio, descontoFaltas, adiantamento);
+                descontoVale, descontoConvenio, descontoFaltas, adiantamento, valeTransporte);
+        this.erroDeCaixa = erroDeCaixa; // Adicionado desconto de convenio
 
+    }
+
+    public double getErroDeCaixa() {
+        return erroDeCaixa;
+    }
+
+    public void setErroDeCaixa(double erroDeCaixa) {
+        this.erroDeCaixa = erroDeCaixa;
     }
 
     public String mudarFuncao() {
@@ -25,6 +35,13 @@ public class OperadoraCaixa extends Pessoa {
         double vencimentosValor = this.calcularDiasTrabalhados() + this.calcularSalarioFamilia()
                 + this.calcularFeriado() + this.calcularQuebraCaixa();
         return vencimentosValor;
+    }
+
+    public double calcularDescontos() {
+        double descontosValor = this.getDescontoVale() + this.calcularINSS() + this.getDescontoConvenio()
+                + this.calcularFaltas() + this.getAdiantamentoValor() + this.calcularValorValeTransporte()
+                + this.getErroDeCaixa();
+        return descontosValor;
     }
 
     @Override
@@ -51,6 +68,8 @@ public class OperadoraCaixa extends Pessoa {
         System.out.printf("\nConvênio funcionário: %.2f", getDescontoConvenio());
         System.out.printf("\nFaltas: %.2f", this.calcularFaltas());
         System.out.printf("\nAdiantamento %.2f", this.calcularAdiantamento());
+        System.out.printf("\nVale transporte %.2f", this.calcularValorValeTransporte());
+        System.out.printf("\nErro de caixa %.2f", this.getErroDeCaixa());
         System.out.printf("\n");
         System.out.printf("\n");
         System.out.printf("\nVencimentos ...................R$%.2f", calcularVencimentos());

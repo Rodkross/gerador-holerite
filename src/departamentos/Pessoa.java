@@ -19,11 +19,12 @@ class Pessoa {
     private int numeroFaltas;
     private boolean adiantamento;
     private double adiantamentoValor;
+    private boolean valeTransporte;
 
     // construtor
     public Pessoa(String nome, String empresa, double salarioBase,
             int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados, double descontoVale, double descontoConvenio,
-            int numeroFaltas, boolean adiantamento) {
+            int numeroFaltas, boolean adiantamento, boolean valeTransporte) {
         this.nome = nome;
         this.empresa = empresa;
         this.salarioBase = salarioBase;
@@ -37,6 +38,7 @@ class Pessoa {
         this.numeroFaltas = numeroFaltas;
         this.adiantamento = adiantamento;
         this.adiantamentoValor = 0;
+        this.valeTransporte = valeTransporte;
 
     }
 
@@ -157,6 +159,14 @@ class Pessoa {
         return adiantamentoValor;
     }
 
+    boolean getValeTransporte() {
+        return valeTransporte;
+    }
+
+    public void setValeTransporte(boolean valeTransporte) {
+        this.valeTransporte = valeTransporte;
+    }
+
     // metodos
 
     // método para calcular valor dias trabalhados
@@ -199,7 +209,7 @@ class Pessoa {
 
     public double calcularDescontos() {
         double descontosValor = this.getDescontoVale() + this.calcularINSS() + this.getDescontoConvenio()
-                + this.calcularFaltas() + this.getAdiantamentoValor();
+                + this.calcularFaltas() + this.getAdiantamentoValor() + this.calcularValorValeTransporte();
         return descontosValor;
     }
 
@@ -221,6 +231,14 @@ class Pessoa {
         return 0.00;
     }
 
+    public double calcularValorValeTransporte() {
+        if (this.getValeTransporte() == true) {
+            double valorValeTransporte = this.calcularDiasTrabalhados() * 0.06;
+            return valorValeTransporte;
+        }
+        return 0.00;
+    }
+
     // metodo das informacoes
     public void exibirInformacoes() {
         System.out.println("\nNome: " + this.getNome());
@@ -236,6 +254,7 @@ class Pessoa {
         System.out.printf("\nConvênio funcionário: %.2f", getDescontoConvenio());
         System.out.printf("\nFaltas: %.2f", this.calcularFaltas());
         System.out.printf("\nAdiantamento %.2f", this.calcularAdiantamento());
+        System.out.printf("\nVale transporte %.2f", this.calcularValorValeTransporte());
         System.out.printf("\n");
         System.out.printf("\n");
         System.out.printf("\nVencimentos ..................R$%.2f", calcularVencimentos());
