@@ -5,7 +5,7 @@
 
 Este projeto tem por finalidade calcular e gerar as informações de um determinado trabalhador, considerando alguns dados (salario base, feriado, salario familia, quebra de caixa, periculosidade e etc...).
 
-A pricipio, sua regra de negocio é voltado pra farmacias e drogarias e pode ser facilmente adaptado a outro negocio.
+A principio, sua regra de negocio é voltado pra farmacias e drogarias e pode ser facilmente adaptado a outro negocio.
 
 O sistema ainda está em desenvolvimento. Sinta-se a vontade pra corrigir, melhorar e dar sugestões.
 
