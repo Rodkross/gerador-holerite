@@ -20,7 +20,7 @@ public class OperadoraCaixa extends Pessoa {
         this.erroDeCaixa = erroDeCaixa;
     }
 
-    public String mudarFuncao() {
+    public String exibirFuncao() {
         String funcaoModificada = "Operadora de Caixa";
         return funcaoModificada;
 
@@ -55,7 +55,7 @@ public class OperadoraCaixa extends Pessoa {
     public void exibirInformacoes() {
         System.out.println("\nNome: " + this.getNome());
         System.out.println("Empresa: " + this.getEmpresa());
-        System.out.println("Função: " + this.mudarFuncao());
+        System.out.println("Função: " + this.exibirFuncao());
         System.out.printf("\n");
         System.out.printf("\nDias trabalhados: %.2f", this.calcularDiasTrabalhados());
         System.out.printf("\nSalário Família: %.2f", this.calcularSalarioFamilia());

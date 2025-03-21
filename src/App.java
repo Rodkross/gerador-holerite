@@ -1,4 +1,5 @@
 import departamentos.Balconista;
+import departamentos.Entregador;
 import departamentos.OperadoraCaixa;
 
 public class App {
@@ -12,9 +13,15 @@ public class App {
                 "Drogaria Nossa Farma ltda", 1719.00,
                 30, 0, 1, 0, 0, 0, true, true, 125.00);
 
+        Entregador entregador1 = new Entregador("Caio Martins Alves", "Drogaria Nossa Farma ltda",
+                1719.00,
+                30, 0, 3, 45, 125,1, true, false);   
+
         balconista1.exibirInformacoes();
         System.out.println("\n");
         operadorCaixa1.exibirInformacoes();
+        System.out.println("\n");
+        entregador1.exibirInformacoes();
 
     }
 

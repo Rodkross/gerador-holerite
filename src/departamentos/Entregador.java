@@ -1,16 +1,15 @@
 package departamentos;
 
-public class Balconista extends Pessoa {
-
-    public Balconista(String nome, String empresa, Double salarioBase,
-            int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados, double descontoVale, double descontoConvenio,
-            int descontoFaltas, boolean adiantamento, boolean valeTransporte) {
+public class Entregador extends Pessoa{
+    public Entregador(String nome, String empresa, Double salarioBase,
+    int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados, double descontoVale, double descontoConvenio,
+    int descontoFaltas, boolean adiantamento, boolean valeTransporte) {
         super(nome, empresa, salarioBase, diasTrabalhados, numeroDeFilhos, numeroDeFeriados,
                 descontoVale, descontoConvenio, descontoFaltas, adiantamento, valeTransporte);
     }
 
     public String exibirFuncao() {
-        String funcaoModificada = "Balconista";
+        String funcaoModificada = "Entregador";
         return funcaoModificada;
     }
 
