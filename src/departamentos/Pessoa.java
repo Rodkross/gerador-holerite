@@ -20,10 +20,10 @@ class Pessoa {
     private boolean adiantamento;
     private double adiantamentoValor;
     private boolean valeTransporte;
-   
 
     // construtor
-    public Pessoa(String nome, String empresa, int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados, double descontoVale, double descontoConvenio,
+    public Pessoa(String nome, String empresa, int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados,
+            double descontoVale, double descontoConvenio,
             int numeroFaltas, boolean adiantamento, boolean valeTransporte) {
         this.nome = nome;
         this.empresa = empresa;
@@ -169,10 +169,10 @@ class Pessoa {
 
     // metodos
 
-
     public double calcularSalarioBase() {
         double salarioBase = this.getSalarioBase();
-        if(exibirFuncao() == "Balconista" || exibirFuncao() == "Operadora de Caixa" || exibirFuncao() == "Entregador"){
+        if (exibirFuncao() == "Balconista" || exibirFuncao() == "Operadora de Caixa"
+                || exibirFuncao() == "Entregador") {
             salarioBase = 1719.00;
         }
         return salarioBase;

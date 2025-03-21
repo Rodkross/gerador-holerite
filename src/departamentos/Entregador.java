@@ -1,8 +1,9 @@
 package departamentos;
 
-public class Entregador extends Pessoa{
-    public Entregador(String nome, String empresa, int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados, double descontoVale, double descontoConvenio,
-    int descontoFaltas, boolean adiantamento, boolean valeTransporte) {
+public class Entregador extends Pessoa {
+    public Entregador(String nome, String empresa, int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados,
+            double descontoVale, double descontoConvenio,
+            int descontoFaltas, boolean adiantamento, boolean valeTransporte) {
         super(nome, empresa, diasTrabalhados, numeroDeFilhos, numeroDeFeriados,
                 descontoVale, descontoConvenio, descontoFaltas, adiantamento, valeTransporte);
     }

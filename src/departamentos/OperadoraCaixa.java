@@ -3,7 +3,8 @@ package departamentos;
 public class OperadoraCaixa extends Pessoa {
     private double erroDeCaixa; // Adicionado um novo atributo
 
-    public OperadoraCaixa(String nome, String empresa, int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados, double descontoVale, double descontoConvenio,
+    public OperadoraCaixa(String nome, String empresa, int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados,
+            double descontoVale, double descontoConvenio,
             int descontoFaltas, boolean adiantamento, boolean valeTransporte, double erroDeCaixa) {
         super(nome, empresa, diasTrabalhados, numeroDeFilhos, numeroDeFeriados,
                 descontoVale, descontoConvenio, descontoFaltas, adiantamento, valeTransporte);

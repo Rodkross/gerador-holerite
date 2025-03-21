@@ -2,7 +2,8 @@ package departamentos;
 
 public class Balconista extends Pessoa {
 
-    public Balconista(String nome, String empresa, int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados, double descontoVale, double descontoConvenio,
+    public Balconista(String nome, String empresa, int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados,
+            double descontoVale, double descontoConvenio,
             int descontoFaltas, boolean adiantamento, boolean valeTransporte) {
         super(nome, empresa, diasTrabalhados, numeroDeFilhos, numeroDeFeriados,
                 descontoVale, descontoConvenio, descontoFaltas, adiantamento, valeTransporte);
