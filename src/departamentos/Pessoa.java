@@ -1,10 +1,9 @@
 package departamentos;
 
-class Pessoa {
+class Pessoa extends Empresa{
     // atributos
     // vencimentos
     private String nome;
-    private String empresa;
     private String funcao;
     private double salarioBase;
     private int diasTrabalhados;
@@ -22,11 +21,10 @@ class Pessoa {
     private boolean valeTransporte;
 
     // construtor
-    public Pessoa(String nome, String empresa, int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados,
+    public Pessoa(String nome, int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados,
             double descontoVale, double descontoConvenio,
             int numeroFaltas, boolean adiantamento, boolean valeTransporte) {
         this.nome = nome;
-        this.empresa = empresa;
         this.salarioBase = 0;
         this.diasTrabalhados = diasTrabalhados;
         this.numeroDeFilhos = numeroDeFilhos;
@@ -49,14 +47,6 @@ class Pessoa {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(String empresa) {
-        this.empresa = empresa;
     }
 
     public double getSalarioBase() {
@@ -256,7 +246,7 @@ class Pessoa {
     // metodo das informacoes
     public void exibirInformacoes() {
         System.out.println("\nNome: " + this.getNome());
-        System.out.println("Empresa: " + this.getEmpresa());
+        System.out.println("Empresa: " + this.getNomeEmpresa());
         System.out.printf("Função: %s / Salário Base: R$%.2f", this.exibirFuncao(), this.calcularSalarioBase());
         System.out.printf("\n");
         System.out.printf("\nDias trabalhados: %.2f", this.calcularDiasTrabalhados());

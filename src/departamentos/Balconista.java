@@ -2,10 +2,10 @@ package departamentos;
 
 public class Balconista extends Pessoa {
 
-    public Balconista(String nome, String empresa, int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados,
+    public Balconista(String nome, int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados,
             double descontoVale, double descontoConvenio,
             int descontoFaltas, boolean adiantamento, boolean valeTransporte) {
-        super(nome, empresa, diasTrabalhados, numeroDeFilhos, numeroDeFeriados,
+        super(nome, diasTrabalhados, numeroDeFilhos, numeroDeFeriados,
                 descontoVale, descontoConvenio, descontoFaltas, adiantamento, valeTransporte);
     }
 
@@ -17,7 +17,7 @@ public class Balconista extends Pessoa {
     @Override
     public void exibirInformacoes() {
         System.out.println("\nNome: " + this.getNome());
-        System.out.println("Empresa: " + this.getEmpresa());
+        System.out.println("Empresa: " + this.getNomeEmpresa());
         System.out.printf("Função: %s / Salário Base: R$%.2f", this.exibirFuncao(), this.calcularSalarioBase());
         System.out.printf("\n");
         System.out.printf("\nDias trabalhados: %.2f", this.calcularDiasTrabalhados());
