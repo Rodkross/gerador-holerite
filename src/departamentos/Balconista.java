@@ -1,12 +1,12 @@
 package departamentos;
 
-public class Balconista extends Pessoa {
+public class Balconista extends Calculos {
 
     public Balconista(String nome, int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados,
             double descontoVale, double descontoConvenio,
             int descontoFaltas, boolean adiantamento, boolean valeTransporte) {
-        super(nome, diasTrabalhados, numeroDeFilhos, numeroDeFeriados,
-                descontoVale, descontoConvenio, descontoFaltas, adiantamento, valeTransporte);
+            super(nome, diasTrabalhados, numeroDeFilhos, numeroDeFeriados, descontoVale, descontoConvenio, descontoFaltas,
+                adiantamento, valeTransporte);
     }
 
     public String exibirFuncao() {

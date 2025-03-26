@@ -1,0 +1,7 @@
+package departamentos;
+
+class Holerite {
+    
+    
+    
+}

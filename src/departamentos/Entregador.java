@@ -1,6 +1,6 @@
 package departamentos;
 
-public class Entregador extends Pessoa {
+public class Entregador extends Calculos{
     public Entregador(String nome, int diasTrabalhados, int numeroDeFilhos, int numeroDeFeriados,
             double descontoVale, double descontoConvenio,
             int descontoFaltas, boolean adiantamento, boolean valeTransporte) {
