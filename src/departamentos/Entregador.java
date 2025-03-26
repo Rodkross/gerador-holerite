@@ -15,8 +15,8 @@ public class Entregador extends Pessoa {
 
     @Override
     public void exibirInformacoes() {
+        System.out.printf("Empresa: %s \nCNPJ: %s\n", this.getNomeEmpresa(), this.getCnpj());
         System.out.println("\nNome: " + this.getNome());
-        System.out.println("Empresa: " + this.getNomeEmpresa());
         System.out.printf("Função: %s / Salário Base: R$%.2f", this.exibirFuncao(), this.calcularSalarioBase());
         System.out.printf("\n");
         System.out.printf("\nDias trabalhados: %.2f", this.calcularDiasTrabalhados());
